@@ -44,6 +44,9 @@ class ServerImpl implements MessageComponentInterface
         if ($resultatverification = mysqli_query($dbLink, $verification)) {
             $row = mysqli_fetch_assoc($resultatverification);
         }
+        //Ici le changement des valeurs modifie la façon de décrypter
+        //l'idée serait de multiplié les différentes possibilités en envoyant
+        //des valeurs différentes à plusieurs client
         $arr = array('chaine' => $row['Message'],
             'choix' => 1, 'pos' => 1, 'mode' => 1, 'fin' => 6);
         $msg = json_encode($arr);
